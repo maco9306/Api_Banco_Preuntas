@@ -1,6 +1,6 @@
 import type { RegisterDTO } from "./auth.dtos";
-import type { UserRepository } from "../../ports/user.repository";
-import type { PasswordHasher } from "../../ports/password.hasher";
+import type { UserRepository } from "../../domain/ports/user.repository";
+import type { PasswordHasher } from "../../domain/ports/password.hasher";
 
 export class RegisterUseCase {
   constructor(

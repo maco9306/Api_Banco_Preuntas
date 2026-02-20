@@ -42,6 +42,6 @@
     "esModuleInterop": true,
     "skipLibCheck": true
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "src/infrastructure/adapters/outbound/db/postgres/UserModel"],
   "exclude": ["node_modules", "dist"]
 }

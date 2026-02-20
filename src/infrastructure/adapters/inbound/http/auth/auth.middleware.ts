@@ -1,5 +1,5 @@
 import type { Request, Response, NextFunction } from "express";
-import type { TokenService, JwtPayload } from "../../../../core/ports/token.service";
+import type { TokenService, JwtPayload } from "../../../../../domain/ports/token.service";
 
 declare global {
   namespace Express {

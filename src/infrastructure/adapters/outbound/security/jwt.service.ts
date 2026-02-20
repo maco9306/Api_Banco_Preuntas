@@ -1,7 +1,7 @@
 import * as jwt from "jsonwebtoken";
 import type { Secret, SignOptions } from "jsonwebtoken";
 import { env } from "../../../config/env";
-import type { TokenService, JwtPayload } from "../../../core/ports/token.service";
+import type { TokenService, JwtPayload } from "../../../../domain/ports/token.service";
 
 export function mustHave<T>(value: T | undefined | null, name: string): T {
   if (value === undefined || value === null || value === "") {

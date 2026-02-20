@@ -1,6 +1,6 @@
 import type { LoginDTO } from "./auth.dtos";
-import type { UserRepository } from "../../ports/user.repository";
-import type { PasswordHasher } from "../../ports/password.hasher";
+import type { UserRepository } from "../../domain/ports/user.repository";
+import type { PasswordHasher } from "../../domain/ports/password.hasher";
 
 export class LoginUseCase {
   constructor(
@@ -11,7 +11,6 @@ export class LoginUseCase {
   async execute(dto: LoginDTO): Promise<{ id: number; email: string }> {
     const user = await this.userRepository.findByEmail(dto.email);
 
-    // No revelamos si el email existe o no (buena práctica de seguridad)
     if (!user) {
       throw new Error("INVALID_CREDENTIALS");
     }

@@ -1,11 +1,19 @@
 import "dotenv/config";
-import express from "express";
-import { env } from "./config/env";
+import { env } from "./infrastructure/config/env";
+import { buildContainer } from "./container";
+import { buildApp } from "./app";
 
-const app = express();
-app.use(express.json());
+async function bootstrap() {
+  const deps = await buildContainer();
+  const app = buildApp(deps);
 
-const PORT = Number(process.env.PORT ?? 3000);
-app.listen(env.PORT, () => {
-  console.log(`API running on http://localhost:${PORT}`);
+  const PORT = Number(env.PORT ?? 3000);
+  app.listen(PORT, () => {
+    console.log(`API running on http://localhost:${PORT}`);
+  });
+}
+
+bootstrap().catch((err) => {
+  console.error("Error al iniciar:", err);
+  process.exit(1);
 });
