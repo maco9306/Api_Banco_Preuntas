@@ -20,7 +20,7 @@ const registerSchema = Joi.object<RegisterDTO>({
     "string.empty": "Correo requerido",
     "any.required": "Correo requerido",
   }),
-  password: Joi.string()
+  password_hash: Joi.string()
     .pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,72}$/)
     .required()
     .messages({
@@ -37,7 +37,7 @@ const loginSchema = Joi.object<LoginDTO>({
     "string.empty": "Correo requerido",
     "any.required": "Correo requerido",
   }),
-  password: Joi.string().required().messages({
+  password_hash: Joi.string().required().messages({
     "string.empty": "Contraseña requerida",
     "any.required": "Contraseña requerida",
   }),

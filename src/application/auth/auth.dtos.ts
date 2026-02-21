@@ -1,10 +1,10 @@
 export type RegisterDTO = {
   nombre: string;
   email: string;
-  password: string;
+  password_hash: string;
 };
 
 export type LoginDTO = {
   email: string;
-  password: string;
+  password_hash: string;
 };

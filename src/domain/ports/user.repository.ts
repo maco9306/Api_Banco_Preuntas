@@ -1,14 +1,14 @@
 export type CreateUserInput = {
   nombre: string;
   email: string;
-  passwordHash: string;
+  password_hash: string;
 };
 
 export type User = {
   id: number;
   nombre: string;
   email: string;
-  passwordHash: string;
+  password_hash: string;
 };
 
 export interface UserRepository {

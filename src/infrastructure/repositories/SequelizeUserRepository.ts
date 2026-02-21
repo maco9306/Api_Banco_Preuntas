@@ -12,18 +12,18 @@ export class SequelizeUserRepository implements UserRepository {
       id: row.id,
       nombre: row.nombre,
       email: row.email,
-      passwordHash: row.passwordHash,
+      password_hash: row.password_hash,
     };
   }
 
-  async create(input: { nombre: string; email: string; passwordHash: string }): Promise<User> {
+  async create(input: { nombre: string; email: string; password_hash: string }): Promise<User> {
     const row = await UserModel.create(input);
 
     return {
       id: row.id,
       nombre: row.nombre,
       email: row.email,
-      passwordHash: row.passwordHash,
+      password_hash: row.password_hash,
     };
   }
 }

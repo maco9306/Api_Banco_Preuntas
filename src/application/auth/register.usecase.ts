@@ -14,12 +14,12 @@ export class RegisterUseCase {
       throw new Error("EMAIL_ALREADY_EXISTS");
     }
 
-    const passwordHash = await this.passwordHasher.hash(dto.password);
+    const passwordHash = await this.passwordHasher.hash(dto.password_hash);
 
     const user = await this.userRepository.create({
       nombre: dto.nombre,
       email: dto.email,
-      passwordHash,
+      password_hash: passwordHash,
     });
 
     return {

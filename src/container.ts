@@ -16,7 +16,7 @@ export async function buildContainer() {
 
   const auth = {
     register: new RegisterUseCase(userRepo, hasher),
-    login: new LoginUseCase(userRepo, hasher),
+    login: new LoginUseCase(userRepo, hasher, tokens),
     tokens,
   };
 

@@ -22,7 +22,6 @@ export class JwtTokenService implements TokenService {
     const secret: Secret = mustHave(env.JWT_SECRET, "JWT_SECRET");
     const decoded = jwt.verify(token, secret);
 
-    // jwt.verify puede devolver string | JwtPayload (de jsonwebtoken)
     if (typeof decoded === "string") {
       throw new Error("INVALID_TOKEN");
     }

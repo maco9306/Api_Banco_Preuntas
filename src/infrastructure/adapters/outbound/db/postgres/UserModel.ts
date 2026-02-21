@@ -5,7 +5,7 @@ interface UserAttributes {
   id: number;
   nombre: string;
   email: string;
-  passwordHash: string;
+  password_hash: string;
 }
 
 interface UserCreationAttributes extends Optional<UserAttributes, "id"> {}
@@ -17,7 +17,7 @@ export class UserModel
   public id!: number;
   public nombre!: string;
   public email!: string;
-  public passwordHash!: string;
+  public password_hash!: string;
 }
 
 const sequelize = SequelizeSingleton.get();
@@ -25,8 +25,8 @@ const sequelize = SequelizeSingleton.get();
 UserModel.init(
   {
     id: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
+      type: DataTypes.BIGINT,
+      autoIncrement: true,
       primaryKey: true,
     },
     nombre: {
@@ -38,14 +38,15 @@ UserModel.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    passwordHash: {
+    password_hash: {
       type: DataTypes.STRING,
       allowNull: false,
     },
   },
   {
     sequelize,
-    tableName: "users",
+    tableName: "usuarios",
     timestamps: true,
+    underscored: true
   }
 );

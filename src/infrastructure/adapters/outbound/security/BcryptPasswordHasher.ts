@@ -1,5 +1,5 @@
-import bcrypt from "bcrypt";
-import type { PasswordHasher } from "../../../../domain/ports/password.hasher";
+import bcrypt from "bcryptjs";
+import type { PasswordHasher } from "../../../../domain/ports/password.hasher"; // ajusta ruta
 
 export class BcryptPasswordHasher implements PasswordHasher {
   private readonly saltRounds = 12;
